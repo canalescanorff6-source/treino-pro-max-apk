@@ -19,6 +19,7 @@ android.api = 34
 android.minapi = 26
 android.ndk = 25b
 android.archs = arm64-v8a
+android.accept_sdk_license = True
 
 p4a.branch = v2024.01.21
 
