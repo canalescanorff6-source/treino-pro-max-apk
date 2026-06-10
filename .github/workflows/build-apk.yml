@@ -52,13 +52,23 @@ jobs:
       - name: Separar APK gerado
         run: |
           mkdir -p dist_apk
-          find android_kivy_apk/bin -name "*.apk" -type f -exec cp {} dist_apk/ \;
-          echo "APKs encontrados:"
+          APK_FILE=$(find android_kivy_apk/bin -type f -name "*.apk" | head -n 1)
+
+          if [ -z "$APK_FILE" ]; then
+            echo "Nenhum APK encontrado"
+            find android_kivy_apk -type f
+            exit 1
+          fi
+
+          cp "$APK_FILE" dist_apk/treino-pro-max-online.apk
+
+          echo "APK separado:"
           ls -lh dist_apk
 
       - name: Enviar APK como artifact
         uses: actions/upload-artifact@v4
         with:
-          name: treino-pro-max-apk
-          path: dist_apk/*.apk
+          name: treino-pro-max-online-apk
+          path: dist_apk/treino-pro-max-online.apk
+          if-no-files-found: error
           retention-days: 7
