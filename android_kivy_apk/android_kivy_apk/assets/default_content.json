@@ -1,1 +1,312 @@
-
+{
+  "version": "5.0-online-final",
+  "app_name": "Treino Pro Max Online",
+  "settings": {
+    "mode": "online_render_apk",
+    "goal": "Hipertrofia e ganho de massa",
+    "profile": "ectomorfo_voltando_apos_pausa",
+    "max_workout_minutes": 90,
+    "default_rest_seconds": 90,
+    "progression_rule": "Quando completar o topo das repetições em todas as séries com boa execução, aumente 2,5% a 5% na próxima semana."
+  },
+  "dashboard_messages": [
+    "APK online conectado ao Render: treinos, histórico, perfil e progresso ficam centralizados.",
+    "Treino pensado para hipertrofia, ganho de massa e retorno gradual depois de tempo parado.",
+    "Se a internet cair, o app salva pendente e você sincroniza depois."
+  ],
+  "weekly_plan": [
+    {
+      "day": "Segunda",
+      "title": "Peito + Ombro + Tríceps",
+      "focus": "Empurrar",
+      "duration": "70 a 90 min",
+      "exercises": [
+        {
+          "name": "Supino reto",
+          "sets": 4,
+          "reps": "8-12",
+          "rest": 120,
+          "target": "Peito",
+          "tips": "Escápulas encaixadas, pés firmes, desça controlando e suba sem perder a postura."
+        },
+        {
+          "name": "Supino inclinado com halteres",
+          "sets": 3,
+          "reps": "8-12",
+          "rest": 90,
+          "target": "Peito superior",
+          "tips": "Controle a descida e não bata os halteres no topo."
+        },
+        {
+          "name": "Crucifixo ou peck deck",
+          "sets": 3,
+          "reps": "10-12",
+          "rest": 60,
+          "target": "Peito",
+          "tips": "Abra sem forçar o ombro e feche contraindo o peito."
+        },
+        {
+          "name": "Desenvolvimento com halteres",
+          "sets": 3,
+          "reps": "8-12",
+          "rest": 90,
+          "target": "Ombros",
+          "tips": "Evite arquear demais a lombar; mantenha abdômen firme."
+        },
+        {
+          "name": "Elevação lateral",
+          "sets": 3,
+          "reps": "12-15",
+          "rest": 60,
+          "target": "Ombro lateral",
+          "tips": "Use carga controlada, suba até a linha do ombro sem impulso."
+        },
+        {
+          "name": "Tríceps na polia",
+          "sets": 3,
+          "reps": "10-12",
+          "rest": 60,
+          "target": "Tríceps",
+          "tips": "Cotovelos fixos e extensão completa."
+        },
+        {
+          "name": "Tríceps francês",
+          "sets": 2,
+          "reps": "10-12",
+          "rest": 60,
+          "target": "Tríceps",
+          "tips": "Controle para não sobrecarregar cotovelo."
+        }
+      ]
+    },
+    {
+      "day": "Terça",
+      "title": "Descanso",
+      "focus": "Recuperação",
+      "duration": "Livre",
+      "exercises": []
+    },
+    {
+      "day": "Quarta",
+      "title": "Costas + Bíceps",
+      "focus": "Puxar",
+      "duration": "70 a 90 min",
+      "exercises": [
+        {
+          "name": "Puxada alta na frente",
+          "sets": 4,
+          "reps": "8-12",
+          "rest": 90,
+          "target": "Costas",
+          "tips": "Puxe com os cotovelos para baixo e evite balançar o corpo."
+        },
+        {
+          "name": "Remada baixa",
+          "sets": 4,
+          "reps": "8-12",
+          "rest": 90,
+          "target": "Costas",
+          "tips": "Peito aberto, coluna neutra e puxe até o abdômen."
+        },
+        {
+          "name": "Remada unilateral",
+          "sets": 3,
+          "reps": "10-12",
+          "rest": 75,
+          "target": "Dorsal",
+          "tips": "Puxe até a linha do quadril e controle a volta."
+        },
+        {
+          "name": "Pulldown braço reto",
+          "sets": 3,
+          "reps": "10-12",
+          "rest": 60,
+          "target": "Dorsal",
+          "tips": "Braços quase retos e foco no dorsal."
+        },
+        {
+          "name": "Rosca direta",
+          "sets": 3,
+          "reps": "8-12",
+          "rest": 75,
+          "target": "Bíceps",
+          "tips": "Não balance o tronco; controle a descida."
+        },
+        {
+          "name": "Rosca alternada",
+          "sets": 3,
+          "reps": "10-12",
+          "rest": 60,
+          "target": "Bíceps",
+          "tips": "Gire o punho e contraia no topo."
+        },
+        {
+          "name": "Rosca martelo",
+          "sets": 2,
+          "reps": "10-12",
+          "rest": 60,
+          "target": "Braquial",
+          "tips": "Punho neutro e movimento limpo."
+        }
+      ]
+    },
+    {
+      "day": "Quinta",
+      "title": "Descanso",
+      "focus": "Recuperação",
+      "duration": "Livre",
+      "exercises": []
+    },
+    {
+      "day": "Sexta",
+      "title": "Pernas + Abdômen",
+      "focus": "Base e força",
+      "duration": "75 a 90 min",
+      "exercises": [
+        {
+          "name": "Agachamento livre ou Smith",
+          "sets": 4,
+          "reps": "8-12",
+          "rest": 120,
+          "target": "Pernas",
+          "tips": "Coluna neutra, joelhos alinhados e descida controlada."
+        },
+        {
+          "name": "Leg press",
+          "sets": 4,
+          "reps": "10-12",
+          "rest": 90,
+          "target": "Quadríceps/glúteos",
+          "tips": "Não trave os joelhos no topo."
+        },
+        {
+          "name": "Cadeira extensora",
+          "sets": 3,
+          "reps": "10-12",
+          "rest": 60,
+          "target": "Quadríceps",
+          "tips": "Segure um segundo no topo."
+        },
+        {
+          "name": "Mesa flexora",
+          "sets": 3,
+          "reps": "10-12",
+          "rest": 60,
+          "target": "Posterior",
+          "tips": "Controle a volta e evite impulso."
+        },
+        {
+          "name": "Stiff",
+          "sets": 3,
+          "reps": "8-12",
+          "rest": 90,
+          "target": "Posterior/lombar",
+          "tips": "Quadril para trás e coluna neutra."
+        },
+        {
+          "name": "Panturrilha",
+          "sets": 4,
+          "reps": "12-20",
+          "rest": 60,
+          "target": "Panturrilha",
+          "tips": "Amplitude completa, pausa curta em cima."
+        },
+        {
+          "name": "Abdominal",
+          "sets": 3,
+          "reps": "15-20",
+          "rest": 45,
+          "target": "Abdômen",
+          "tips": "Contraia sem puxar o pescoço."
+        }
+      ]
+    },
+    {
+      "day": "Sábado",
+      "title": "Descanso opcional",
+      "focus": "Recuperação",
+      "duration": "Livre",
+      "exercises": []
+    },
+    {
+      "day": "Domingo",
+      "title": "Descanso total",
+      "focus": "Sono e alimentação",
+      "duration": "Livre",
+      "exercises": []
+    }
+  ],
+  "nutrition": {
+    "mode": "bulking_ectomorfo",
+    "rules": [
+      "Comer em superávit calórico leve todos os dias.",
+      "Priorizar arroz, feijão, macarrão, aveia, batata, ovos, frango, carne, leite, iogurte e frutas.",
+      "Bater proteína em todas as refeições principais.",
+      "Beber água durante o dia e evitar treinar em jejum pesado.",
+      "Se o peso não subir por 2 semanas, aumentar uma refeição ou porção de carboidrato."
+    ],
+    "simple_day": [
+      "Café: ovos + pão/aveia + fruta + leite ou iogurte.",
+      "Almoço: arroz + feijão + carne/frango + salada + azeite.",
+      "Pré-treino: banana + aveia ou pão com ovos.",
+      "Pós-treino: refeição com carboidrato e proteína.",
+      "Jantar: comida de verdade parecida com almoço.",
+      "Ceia: leite, iogurte, ovos ou sanduíche simples."
+    ]
+  },
+  "smart_coach": {
+    "return_after_pause": "Comece com 50% a 60% da carga antiga e aumente aos poucos.",
+    "pain_warning": "Dor articular forte não é normal. Reduza carga e ajuste execução.",
+    "fatigue_rule": "Se energia estiver muito baixa, reduza uma série dos exercícios acessórios.",
+    "performance_rule": "Se completou todas as séries no topo das reps com técnica boa, progrida carga."
+  },
+  "exercise_library": [
+    {
+      "name": "Supino reto",
+      "muscle": "Peito",
+      "common_mistakes": "Abrir demais os cotovelos, perder escápulas e tirar os pés do chão.",
+      "substitutes": [
+        "Supino máquina",
+        "Flexão",
+        "Supino halteres"
+      ]
+    },
+    {
+      "name": "Agachamento",
+      "muscle": "Pernas",
+      "common_mistakes": "Arredondar lombar, joelho cair para dentro, descer sem controle.",
+      "substitutes": [
+        "Smith",
+        "Leg press",
+        "Goblet squat"
+      ]
+    },
+    {
+      "name": "Puxada alta",
+      "muscle": "Costas",
+      "common_mistakes": "Puxar atrás da nuca, balançar o tronco e usar só braço.",
+      "substitutes": [
+        "Barra assistida",
+        "Remada alta máquina"
+      ]
+    },
+    {
+      "name": "Rosca direta",
+      "muscle": "Bíceps",
+      "common_mistakes": "Balançar o corpo e subir o cotovelo.",
+      "substitutes": [
+        "Rosca alternada",
+        "Rosca no cabo"
+      ]
+    },
+    {
+      "name": "Elevação lateral",
+      "muscle": "Ombros",
+      "common_mistakes": "Usar impulso e subir acima do necessário.",
+      "substitutes": [
+        "Máquina lateral",
+        "Cabo unilateral"
+      ]
+    }
+  ]
+}
