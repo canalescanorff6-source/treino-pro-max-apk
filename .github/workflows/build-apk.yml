@@ -1,1 +1,64 @@
+name: Gerar APK Android
 
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'android_kivy_apk/**'
+      - '.github/workflows/build-apk.yml'
+
+jobs:
+  build-apk:
+    name: Build APK Treino Pro Max
+    runs-on: ubuntu-22.04
+    timeout-minutes: 120
+
+    steps:
+      - name: Baixar código do GitHub
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Instalar dependências do sistema
+        run: |
+          sudo apt update -y
+          sudo apt install -y \
+            zip unzip git autoconf libtool pkg-config zlib1g-dev \
+            libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev \
+            libssl-dev lld ccache build-essential
+          python -m pip install --upgrade pip
+          python -m pip install buildozer==1.5.0 cython==0.29.37 virtualenv
+
+      - name: Conferir configuração do APK
+        working-directory: android_kivy_apk
+        run: |
+          pwd
+          grep -n "requirements\|android.api\|android.minapi\|android.archs\|p4a.branch" buildozer.spec
+
+      - name: Gerar APK
+        working-directory: android_kivy_apk
+        run: |
+          buildozer -v android debug
+
+      - name: Separar APK gerado
+        run: |
+          mkdir -p dist_apk
+          find android_kivy_apk/bin -name "*.apk" -type f -exec cp {} dist_apk/ \;
+          echo "APKs encontrados:"
+          ls -lh dist_apk
+
+      - name: Enviar APK como artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: treino-pro-max-apk
+          path: dist_apk/*.apk
+          retention-days: 7
