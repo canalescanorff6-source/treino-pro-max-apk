@@ -5,7 +5,7 @@ package.domain = br.com.luisborges
 source.dir = .
 source.include_exts = py,png,jpg,jpeg,json,txt,csv,db,gif,mp4,webp
 version = 4.1.0
-requirements = python3,kivy==2.3.0,plyer
+requirements = python3==3.10.11,hostpython3==3.10.11,kivy==2.3.0,plyer
 orientation = portrait
 fullscreen = 0
 icon.filename = assets/icon.png
@@ -21,9 +21,9 @@ android.ndk = 25b
 android.archs = arm64-v8a
 android.accept_sdk_license = True
 
+# Usa release estável do python-for-android para evitar Python 3.14 do master
+p4a.branch = v2024.01.21
+
 [buildozer]
 log_level = 2
 warn_on_root = 0
-
-# Usa release estável do python-for-android para evitar Python 3.14 do master
-p4a.branch = v2024.01.21

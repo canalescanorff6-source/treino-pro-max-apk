@@ -44,6 +44,7 @@ jobs:
       - name: Gerar APK
         working-directory: android_kivy_apk
         run: |
+          rm -rf .buildozer
           yes | buildozer -v android debug
 
       - name: Separar APK gerado
