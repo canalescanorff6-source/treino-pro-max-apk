@@ -1,0 +1,5 @@
+POLÍTICA DE PRIVACIDADE - TREINO PRO MAX
+
+A versão local salva dados no próprio dispositivo: perfil, treinos, cargas, medidas, refeições, fotos e histórico. Nenhum dado é enviado para servidor sem integração configurada.
+
+Ao ativar integrações futuras de nuvem, pagamento ou vídeos online, será necessário informar endpoint/API e adequar esta política ao serviço usado.

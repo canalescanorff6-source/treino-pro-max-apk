@@ -1,4 +1,4 @@
-name: Gerar APK Android
+name: Gerar APK v4.1 Completo Render
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-apk:
-    name: Build APK Treino Pro Max
+    name: Build APK Treino Pro Max v4.1 Completo
     runs-on: ubuntu-22.04
     timeout-minutes: 120
 
@@ -28,47 +28,40 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Instalar dependências do sistema
+      - name: Instalar dependências
         run: |
           sudo apt update -y
-          sudo apt install -y \
-            zip unzip git autoconf libtool pkg-config zlib1g-dev \
-            libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev \
-            libssl-dev lld ccache build-essential
+          sudo apt install -y zip unzip git autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev lld ccache build-essential
           python -m pip install --upgrade pip
           python -m pip install buildozer==1.5.0 cython==0.29.37 virtualenv
 
-      - name: Conferir configuração do APK
+      - name: Conferir Buildozer
         working-directory: android_kivy_apk
         run: |
           pwd
-          grep -n "requirements\|android.api\|android.minapi\|android.archs\|p4a.branch" buildozer.spec
+          grep -n "requirements\|android.api\|android.minapi\|android.archs\|p4a.branch\|accept_sdk" buildozer.spec
 
       - name: Gerar APK
         working-directory: android_kivy_apk
         run: |
-          buildozer -v android debug
+          yes | buildozer -v android debug
 
       - name: Separar APK gerado
         run: |
           mkdir -p dist_apk
           APK_FILE=$(find android_kivy_apk/bin -type f -name "*.apk" | head -n 1)
-
           if [ -z "$APK_FILE" ]; then
             echo "Nenhum APK encontrado"
             find android_kivy_apk -type f
             exit 1
           fi
-
-          cp "$APK_FILE" dist_apk/treino-pro-max-online.apk
-
-          echo "APK separado:"
+          cp "$APK_FILE" dist_apk/treino-pro-max-v4-1-completo-render.apk
           ls -lh dist_apk
 
       - name: Enviar APK como artifact
         uses: actions/upload-artifact@v4
         with:
-          name: treino-pro-max-online-apk
-          path: dist_apk/treino-pro-max-online.apk
+          name: treino-pro-max-v4-1-completo-render-apk
+          path: dist_apk/treino-pro-max-v4-1-completo-render.apk
           if-no-files-found: error
           retention-days: 7

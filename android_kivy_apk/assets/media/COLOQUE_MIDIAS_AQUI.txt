@@ -1,0 +1,3 @@
+Coloque aqui GIFs, imagens ou vídeos dos exercícios.
+Depois abra o app > Mídias dos exercícios e anexe o caminho ao ID do exercício.
+Exemplo: EX0001 para Supino reto com barra.

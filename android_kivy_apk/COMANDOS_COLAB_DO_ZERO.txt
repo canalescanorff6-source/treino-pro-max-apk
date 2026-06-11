@@ -1,0 +1,44 @@
+# TREINO PRO MAX v4.1 - COMPILAÇÃO DO ZERO NO GOOGLE COLAB
+
+# 1) Montar Drive e preparar ambiente
+from google.colab import drive, files
+import os, glob, shutil
+
+drive.mount('/content/drive', force_remount=True)
+%cd /content
+!rm -rf /content/app /content/.buildozer /root/.buildozer
+
+# 2) Enviar o arquivo treino_pro_max_v4_1_zero_colab.zip
+uploaded = files.upload()
+
+# 3) Instalar dependências
+!apt update -y
+!apt install -y zip unzip openjdk-17-jdk python3-pip git autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev lld
+!python -m pip install --upgrade pip
+!python -m pip install buildozer==1.5.0 cython==0.29.37 virtualenv
+
+# 4) Descompactar e entrar na pasta certa
+%cd /content
+!unzip -o treino_pro_max_v4_1_zero_colab.zip -d /content/app
+
+specs = glob.glob('/content/app/**/buildozer.spec', recursive=True)
+print('Buildozer specs:', specs)
+project_dir = os.path.dirname(specs[0])
+os.chdir(project_dir)
+!pwd
+!grep -n "requirements\|android.api\|android.minapi\|android.archs\|p4a.branch" buildozer.spec
+
+# 5) Compilar
+!buildozer -v android debug
+
+# 6) Salvar e baixar APK
+apks = glob.glob('/content/app/**/*.apk', recursive=True)
+print('APKs encontrados:', apks)
+if not apks:
+    raise FileNotFoundError('Nenhum APK foi encontrado. Veja o log acima.')
+apk = max(apks, key=os.path.getmtime)
+os.makedirs('/content/drive/MyDrive/APKs', exist_ok=True)
+destino = '/content/drive/MyDrive/APKs/treino_pro_max_v4_1.apk'
+shutil.copy(apk, destino)
+print('APK salvo em:', destino)
+files.download(destino)

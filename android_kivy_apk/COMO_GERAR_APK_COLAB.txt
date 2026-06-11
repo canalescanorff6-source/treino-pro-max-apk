@@ -1,0 +1,39 @@
+# COMO GERAR APK - TREINO PRO MAX v4.1 BUILD FIX
+
+# 1) Limpe o ambiente antes de enviar o ZIP
+!rm -rf /content/app
+!rm -rf ~/.buildozer/android/platform/build-*
+
+# 2) Envie o arquivo treino_pro_max_v4_1_build_fix.zip
+from google.colab import files
+uploaded = files.upload()
+
+# 3) Instale dependências
+!apt update -y
+!apt install -y zip unzip openjdk-17-jdk python3-pip git autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+!pip install --upgrade pip
+!pip install buildozer cython==0.29.36 virtualenv
+
+# 4) Descompacte e entre automaticamente na pasta certa
+import os, glob
+zips = glob.glob('*.zip')
+print('ZIPs:', zips)
+zip_file = [z for z in zips if 'build_fix' in z][0] if any('build_fix' in z for z in zips) else zips[0]
+!unzip -o "$zip_file" -d /content/app
+specs = glob.glob('/content/app/**/buildozer.spec', recursive=True)
+print('buildozer.spec encontrado em:', specs)
+project_dir = os.path.dirname(specs[0])
+os.chdir(project_dir)
+!pwd
+!grep -n "requirements\|android.archs\|services" buildozer.spec
+
+# 5) Gere APK somente arm64-v8a, mais leve para o Colab
+!buildozer -v android debug
+
+# 6) Localize o APK
+!find . -name "*.apk" -type f -print
+
+
+PATCH BUILD PYTHON 3.10:
+- requirements fixado para python3==3.10.11 e hostpython3==3.10.11.
+- android.minapi alterado para 26 para evitar erro de remote_debugging/preadv no Python 3.14.

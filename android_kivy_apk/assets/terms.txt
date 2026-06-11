@@ -1,0 +1,7 @@
+TERMOS DE USO - TREINO PRO MAX
+
+Este aplicativo é uma ferramenta de organização de treino, histórico, alimentação e evolução. Ele não substitui avaliação médica, nutricional ou acompanhamento de profissional de educação física.
+
+Use cargas compatíveis com sua condição física. Interrompa exercícios em caso de dor articular, tontura ou mal-estar. Para treinos, dietas e condições de saúde específicas, procure um profissional habilitado.
+
+Recursos de pagamento, nuvem e vídeos online estão estruturados para integração futura com servidor/API. A versão local salva informações no próprio aparelho.
